@@ -1,24 +1,35 @@
-# README
+## Énoncé
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Vous devez créer une application web permettant de créer et gérer des projets pour une entreprise.
 
-Things you may want to cover:
+### Première étape : Créer un projet (Niveau Basic)
 
-* Ruby version
+- [ ] L'application doit permettre la création d'un projet avec un nom et une description.
+- [ ] Le projet doit être sauvegardé en base de données.
+- [ ] L'application doit afficher la liste des projets existants.
 
-* System dependencies
+### Deuxième étape : Ajouter des tâches (Niveau Basic)
 
-* Configuration
+- [ ] L'application doit permettre d'ajouter des tâches à un projet.
+- [ ] Une tâche doit avoir un nom et une description.
+- [ ] Les tâches doivent être sauvegardées en base de données.
+- [ ] L'application doit afficher la liste des tâches associées à un projet.
 
-* Database creation
+### Troisième étape : Assigner des tâches à des utilisateurs (Niveau intermédiaire)
 
-* Database initialization
+- [ ] L'application doit permettre d'assigner des tâches à des utilisateurs.
+- [ ] Chaque tâche peut être assignée à un utilisateur unique.
+- [ ] Les tâches assignées à chaque utilisateur doivent être affichées dans une liste dédiée.
 
-* How to run the test suite
+### Quatrième étape : Statut des tâches (Niveau confirmé)
 
-* Services (job queues, cache servers, search engines, etc.)
+- [ ] L'application doit permettre de définir un statut pour chaque tâche (en cours, terminée, etc.).
+- [ ] Les tâches doivent être filtrables par statut.
+- [ ] L'application doit afficher la progression du projet en fonction du nombre de tâches terminées.
 
-* Deployment instructions
+## Remarques (super bonus)
 
-* ...
+- L'interface utilisateur doit être claire et facile à utiliser.
+- Le code doit être propre et facile à lire.
+- Les erreurs doivent être gérées de manière élégante.
+- Le code doit être testé de manière adéquate.

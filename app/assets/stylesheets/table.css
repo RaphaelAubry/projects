@@ -1,0 +1,14 @@
+table-row {
+  display: table-row;
+}
+
+table-1 {
+  display: table;
+  margin-top: 10px;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+table-cell {
+  display: table-cell;
+}

@@ -1,0 +1,10 @@
+<%= form_for @project do |form| %>
+  <%= form.label "name" %>
+  <%= form.text_field :name %>
+
+  <%= form.label "description" %>
+  <%= form.text_area :description %>
+
+  <%= form.submit "validate" %>
+  <%= link_to "projects", projects_path %>
+<% end %>

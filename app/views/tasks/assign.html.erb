@@ -6,5 +6,6 @@
   <%= form.select :user_id, selection %>
   <%= form.submit "validate" %>
 <% end %>
-
-<%= link_to @task.project.name, project_path(@task.project) %>
+<group-link>
+  <%= link_to @task.project.name, project_path(@task.project) %>
+</group-link>

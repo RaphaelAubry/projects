@@ -1,12 +1,15 @@
 <h1>Project : <%= @project.name %></h1>
-<p><%= @project.description %></p>
-<%= link_to "edit project", edit_project_path(@project) %>
-<%= link_to "delete project", project_path(@project), data: { turbo_method: :delete , turbo_confirm: 'Are you sure' } %>
+<description-1><%= @project.description %></description-1>
+<p>Progression : <%= number_to_percentage(@project.progression, precision: 2) %></p>
 
+<group-link>
+  <%= link_to "edit project", edit_project_path(@project) %>
+  <%= link_to "delete project", project_path(@project), data: { turbo_method: :delete , turbo_confirm: "Are you sure" } %>
+</group-link>
 
+<% if @tasks.present? %>
 <h2>Tasks</h2>
 <%= render partial: "tasks/filter_status" %>
-<% if @tasks.present? %>
   <table-1>
     <table-row>
       <table-cell>
@@ -46,6 +49,8 @@
   </table-1>
 <% end %>
 
-<%= link_to "new task", new_project_task_path(@project) %>
-<%= link_to "projects", projects_path %>
-<%= link_to "users", users_path %>
+<group-link>
+  <%= link_to "new task", new_project_task_path(@project) %>
+  <%= link_to "projects", projects_path %>
+  <%= link_to "users", users_path %>
+</group-link>

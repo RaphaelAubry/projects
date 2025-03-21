@@ -1,0 +1,8 @@
+<form data-controller="checkboxes">
+  <% Task::STATUSES.each do |status| %>
+    <% checked = @statuses.include? status %>
+    <input name="filter[]" type="checkbox" value="<%= status %>" data-checkboxes-target="checkbox" data-checked="<%= checked %>"/>
+    <label for="filter"><%= status %></label>
+  <% end %>
+  <button type="submit">Filter</button>
+</form>

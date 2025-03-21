@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
-     @task.project = @project
+    @task.project = @project
 
     if @task.save
       respond_to do |format|
@@ -58,7 +58,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :project_id, :user_id)
+    params.require(:task).permit(:name, :description, :project_id, :user_id, :status)
   end
 
   def task

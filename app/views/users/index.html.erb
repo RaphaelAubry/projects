@@ -14,7 +14,7 @@
         </table-cell>
         <table-cell>
           <%= link_to :edit, edit_user_path(user) %>
-          <%= link_to :delete, user_path(user), data: { turbo_method: :delete , turbo_confirm: 'Are you sure' } %>
+          <%= link_to :delete, user_path(user), data: { turbo_method: :delete , turbo_confirm: "Are you sure" } %>
         </table-cell>
       </table-row>
     <% end %>

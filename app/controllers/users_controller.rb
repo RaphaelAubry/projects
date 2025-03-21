@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @tasks = params[:filter].present? ? @user.tasks.status(params[:filter]) : @user.tasks
+    @statuses = params[:filter].present? ? params[:filter] : Task::STATUSES
   end
 
   def edit

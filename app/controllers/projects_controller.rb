@@ -22,6 +22,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @tasks = params[:filter].present? ? @project.tasks.status(params[:filter]) : @project.tasks
+    @statuses = params[:filter].present? ? params[:filter] : Task::STATUSES
   end
 
   def edit

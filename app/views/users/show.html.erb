@@ -1,15 +1,22 @@
 <h1><%= @user.name %></h1>
-<% if @user.tasks.present? %>
+<%= render "tasks/filter_status" %>
+<% if @tasks.present? %>
   <table-1>
     <table-row>
       <table-cell>
         Name
       </table-cell>
+      <table-cell>
+        Statut
+      </table-cell>
     </table-row>
-    <% @user.tasks.each do |task| %>
+    <% @tasks.each do |task| %>
       <table-row>
         <table-cell>
-          <%= link_to task.name, project_path(task.project) %>
+          <%= link_to task.name, edit_task_path(task) %>
+        </table-cell>
+        <table-cell>
+          <%= task.status %>
         </table-cell>
       </table-row>
     <% end %>

@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "projects#index"
   resources :projects
+  resources :projects do
+    resources :tasks, only: [:new, :create]
+  end
+  resources :tasks, only: [:index, :edit, :update, :destroy]
 end

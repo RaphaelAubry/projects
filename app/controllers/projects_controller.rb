@@ -10,7 +10,9 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    if @project = Project.create(project_params)
+    @project = Project.create(project_params)
+
+    if @project.save
       respond_to do |format|
         format.html { redirect_to projects_path, notice: "Project registered" }
       end

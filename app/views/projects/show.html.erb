@@ -2,3 +2,34 @@
 <p><%= @project.description %></p>
 <%= link_to :edit, edit_project_path(@project) %>
 <%= link_to :delete, project_path(@project), data: { turbo_method: :delete , turbo_confirm: 'Are you sure' } %>
+
+<% if @project.tasks.present? %>
+  <h2>Tasks</h2>
+  <table-1>
+    <table-row>
+      <table-cell>
+        Name
+      </table-cell>
+      <table-cell>
+        Description
+      </table-cell>
+    </table-row>
+    <% @project.tasks.each do |task| %>
+      <table-row>
+        <table-cell>
+          <%= task.name %>
+        </table-cell>
+        <table-cell>
+          <%= task.description %>
+        </table-cell>
+        <table-cell>
+          <%= link_to :edit, edit_task_path(task) %>
+          <%= link_to :delete, task_path(task), data: { turbo_method: :delete , turbo_confirm: 'Are you sure' } %>
+        </table-cell>
+      </table-row>
+    <% end %>
+  </table-1>
+<% end %>
+
+<%= link_to "new task", new_project_task_path(@project) %>
+<%= link_to "projects", projects_path %>

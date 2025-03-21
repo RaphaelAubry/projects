@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   root "projects#index"
   resources :projects
   resources :projects do
-    resources :tasks, only: [:new, :create]
+    resources :tasks, only: [ :new, :create ]
   end
-  resources :tasks, only: [:index, :edit, :update, :destroy]
+  resources :tasks, only: [ :index, :edit, :update, :destroy ]
   resources :users
 
   get "/unassign/:id", to: "tasks#unassign", as: :unassign

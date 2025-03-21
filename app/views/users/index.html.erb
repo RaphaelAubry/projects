@@ -1,0 +1,23 @@
+<h1>Users</h1>
+<%= link_to "new user", new_user_path %>
+<% if @users.present? %>
+  <table-1>
+    <table-row>
+      <table-cell>
+        Name
+      </table-cell>
+    </table-row>
+    <% @users.each do |user| %>
+      <table-row>
+        <table-cell>
+          <%= link_to user.name, user_path(user) %>
+        </table-cell>
+        <table-cell>
+          <%= link_to :edit, edit_user_path(user) %>
+          <%= link_to :delete, user_path(user), data: { turbo_method: :delete , turbo_confirm: 'Are you sure' } %>
+        </table-cell>
+      </table-row>
+    <% end %>
+  </table-1>
+<% end %>
+<%= link_to :projects, projects_path %>

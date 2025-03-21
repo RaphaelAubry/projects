@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :task, only: [ :edit, :update, :destroy ]
+  before_action :task, only: [ :edit, :update, :destroy, :unassign, :assign ]
   before_action :project, only: [:new, :create]
 
   def index
@@ -34,6 +34,19 @@ class TasksController < ApplicationController
     end
   end
 
+  def unassign
+    @task.update(user_id: nil)
+
+    if @task.save
+          respond_to do |format|
+        format.html { redirect_to project_path(@task.project), notice: "Unassigned" }
+      end
+    end
+  end
+
+  def assign
+  end
+
   def destroy
     if @task.destroy
       respond_to do |format|
@@ -45,7 +58,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :project_id)
+    params.require(:task).permit(:name, :description, :project_id, :user_id)
   end
 
   def task

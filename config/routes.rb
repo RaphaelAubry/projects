@@ -17,4 +17,8 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :create]
   end
   resources :tasks, only: [:index, :edit, :update, :destroy]
+  resources :users
+
+  get "/unassign/:id", to: "tasks#unassign", as: :unassign
+  get "/assign/:id", to: "tasks#assign", as: :assign
 end

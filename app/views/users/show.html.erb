@@ -7,6 +7,9 @@
         Name
       </table-cell>
       <table-cell>
+        Project
+      </table-cell>
+      <table-cell>
         Statut
       </table-cell>
     </table-row>
@@ -14,6 +17,9 @@
       <table-row>
         <table-cell>
           <%= link_to task.name, edit_task_path(task) %>
+        </table-cell>
+        <table-cell>
+          <%= task.project.name %>
         </table-cell>
         <table-cell>
           <%= task.status %>

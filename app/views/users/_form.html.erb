@@ -1,0 +1,13 @@
+<%= form_for @user do |form| %>
+  <%= form.label "name" %>
+  <%= form.text_field :name %>
+  <% if select_task %>
+    <% if available_selection.present? %>
+      <%= form.label "task" %>
+      <%= form.select :tasks, available_selection, multiple: true, include_blank: false %>
+    <% else %>
+      No available tasks
+    <% end %>
+  <% end %>
+  <%= form.submit "validate" %>
+<% end %>

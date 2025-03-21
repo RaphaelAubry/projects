@@ -1,0 +1,8 @@
+form#new_project,
+form.edit_user, form.new_user,
+form.edit_task, form.new_task {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 10px;
+}

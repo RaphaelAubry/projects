@@ -1,0 +1,27 @@
+<h1>Projects</h1>
+<%= link_to :new, new_project_path %>
+<% if @projects.present? %>
+  <table-1>
+    <table-row>
+      <table-cell>
+        Name
+      </table-cell>
+      <table-cell>
+        Description
+      </table-cell>
+    </table-row>
+    <% @projects.each do |project| %>
+      <table-row>
+        <table-cell>
+          <%= link_to project.name, project_path(project) %>
+        </table-cell>
+        <table-cell>
+          <%= project.description %>
+        </table-cell>
+      </table-row>
+    <% end %>
+  </table-1>
+<% end %>
+<group-link>
+  <%= link_to :users, users_path %>
+</group-link>

@@ -1,0 +1,12 @@
+<%= form_for [@project, @task] do |form| %>
+  <%= form.label "name" %>
+  <%= form.text_field :name %>
+
+  <%= form.label "description" %>
+  <%= form.text_area :description %>
+
+  <%= form.label "statut" %>
+  <%= form.select :status, Task::STATUSES %>
+
+  <%= form.submit "validate" %>
+<% end %>

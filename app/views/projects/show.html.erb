@@ -1,0 +1,56 @@
+<h1>Project : <%= @project.name %></h1>
+<description-1><%= @project.description %></description-1>
+<p>Progression : <%= number_to_percentage(@project.progression, precision: 2) %></p>
+
+<group-link>
+  <%= link_to "edit project", edit_project_path(@project) %>
+  <%= link_to "delete project", project_path(@project), data: { turbo_method: :delete , turbo_confirm: "Are you sure" } %>
+</group-link>
+
+<% if @tasks.present? %>
+<h2>Tasks</h2>
+<%= render partial: "tasks/filter_status" %>
+  <table-1>
+    <table-row>
+      <table-cell>
+        Name
+      </table-cell>
+      <table-cell>
+        Description
+      </table-cell>
+      <table-cell>
+        Assignee
+      </table-cell>
+      <table-cell>
+        Statut
+      </table-cell>
+    </table-row>
+    <% @tasks.each do |task| %>
+      <table-row>
+        <table-cell>
+          <%= task.name %>
+        </table-cell>
+        <table-cell>
+          <%= task.description %>
+        </table-cell>
+        <table-cell>
+          <%= link_to task.user.name, user_path(task.user) if task.user %>
+        </table-cell>
+        <table-cell>
+          <%= task.status %>
+        </table-cell>
+        <table-cell>
+          <%= link_to "edit task", edit_task_path(task) %>
+          <%= link_to "delete task", task_path(task), data: { turbo_method: :delete , turbo_confirm: "Are you sure" } %>
+          <%= task.user ? (link_to :unassign, unassign_path(task)) : (link_to :assign, assign_path(task)) %>
+        </table-cell>
+      </table-row>
+    <% end %>
+  </table-1>
+<% end %>
+
+<group-link>
+  <%= link_to "new task", new_project_task_path(@project) %>
+  <%= link_to "projects", projects_path %>
+  <%= link_to "users", users_path %>
+</group-link>

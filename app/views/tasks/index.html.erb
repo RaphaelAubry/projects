@@ -1,0 +1,27 @@
+<h1>Tasks</h1>
+<table-1>
+  <table-row>
+    <table-cell>
+      Name
+    </table-cell>
+    <table-cell>
+      Description
+    </table-cell>
+  </table-row>
+  <% @tasks.each do |task| %>
+    <table-row>
+      <table-cell>
+        <%= link_to task.name, task_path(task)%>
+      </table-cell>
+      <table-cell>
+        <%= link_to task.description, task_path(task)%>
+      </table-cell>
+      <table-cell>
+        <%= link_to task.project.name, project_path(task.project)%>
+      </table-cell>
+    </table-row>
+  <% end %>
+</table-1>
+<group-link>
+  <%= link_to "projects", projects_path %>
+</group-link>

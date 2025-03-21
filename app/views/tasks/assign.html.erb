@@ -1,0 +1,11 @@
+<h1>Assign task</h1>
+<h3><%= @task.name %></h3>
+
+<%= form_for @task do |form| %>
+  <%= form.label "user" %>
+  <%= form.select :user_id, selection %>
+  <%= form.submit "validate" %>
+<% end %>
+<group-link>
+  <%= link_to @task.project.name, project_path(@task.project) %>
+</group-link>

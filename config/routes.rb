@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tasks, only: [ :new, :create ]
   end
-  resources :tasks, only: [ :index, :edit, :update, :destroy ]
+  resources :tasks, only: [ :index, :edit, :update, :destroy ] do
+    member do
+      get "assign", as: :assign
+      get "unassign", as: :unassign
+    end
+  end
   resources :users
-
-  get "/unassign/:id", to: "tasks#unassign", as: :unassign
-  get "/assign/:id", to: "tasks#assign", as: :assign
 end

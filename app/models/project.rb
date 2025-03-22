@@ -8,6 +8,8 @@ class Project < ApplicationRecord
       Rails.logger.debug "Exception class : #{e.class}"
       Rails.logger.debug "Exception message : #{e.message}"
       Rails.logger.debug "Exception backtrace : \n#{e.backtrace.join("\n")}"
+    ensure
+      return 0
     end
   end
 end

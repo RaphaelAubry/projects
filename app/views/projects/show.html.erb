@@ -7,9 +7,10 @@
   <%= link_to "delete project", project_path(@project), data: { turbo_method: :delete , turbo_confirm: "Are you sure" } %>
 </group-link>
 
-<% if @tasks.present? %>
+
 <h2>Tasks</h2>
 <%= render partial: "tasks/filter_status" %>
+<% if @tasks.present? %>
   <table-1>
     <table-row>
       <table-cell>
@@ -42,7 +43,7 @@
         <table-cell>
           <%= link_to "edit task", edit_task_path(task) %>
           <%= link_to "delete task", task_path(task), data: { turbo_method: :delete , turbo_confirm: "Are you sure" } %>
-          <%= task.user ? (link_to :unassign, unassign_path(task)) : (link_to :assign, assign_path(task)) %>
+          <%= task.user ? (link_to :unassign, unassign_task_path(task)) : (link_to :assign, assign_task_path(task)) %>
         </table-cell>
       </table-row>
     <% end %>

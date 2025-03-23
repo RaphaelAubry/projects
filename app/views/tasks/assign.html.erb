@@ -2,10 +2,10 @@
 <h3><%= @task.name %></h3>
 
 <%= turbo_frame_tag "assign" do %>
-  <% if selection.present? %>
+  <% if selection_for_users.present? %>
     <%= form_for @task, url: assignate_task_path(@task), method: :patch do |form| %>
       <%= form.label "user" %>
-      <%= form.select :user_id, selection %>
+      <%= form.select :user_id, selection_for_users %>
       <%= form.submit "validate" %>
     <% end %>
   <% else %>

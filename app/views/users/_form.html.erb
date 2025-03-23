@@ -2,9 +2,9 @@
   <%= form.label "name" %>
   <%= form.text_field :name %>
   <% if select_task %>
-    <% if available_selection.present? %>
+    <% if selection_for_available_tasks.present? %>
       <%= form.label "task" %>
-      <%= form.select :tasks, available_selection, multiple: true, include_blank: false %>
+      <%= form.select :tasks, selection_for_available_tasks, multiple: true, include_blank: false %>
     <% else %>
       No available tasks
     <% end %>

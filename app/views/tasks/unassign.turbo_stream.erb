@@ -1,0 +1,4 @@
+<%= turbo_stream.update "task_#{@task.id}", "" %>
+<%= turbo_stream.update "assign" do %>
+  <%= render partial: "tasks/actions", locals: { task: @task } %>
+<% end %>

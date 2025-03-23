@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   resources :tasks, only: [ :index, :edit, :update, :destroy ] do
     member do
       get "assign", as: :assign
-      get "unassign", as: :unassign
+      patch "assignate"
+      patch "unassign", as: :unassign
     end
   end
   resources :users

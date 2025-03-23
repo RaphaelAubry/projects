@@ -1,0 +1,3 @@
+<%= task.user ? (link_to :unassign, unassign_task_path(task), method: :patch, data: { turbo_method: :patch, turbo_stream: true })
+              : (link_to :assign, assign_task_path(task))
+%>

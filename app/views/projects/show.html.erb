@@ -35,7 +35,9 @@
           <%= task.description %>
         </table-cell>
         <table-cell>
-          <%= link_to task.user.name, user_path(task.user) if task.user %>
+          <%= turbo_frame_tag "task_#{task.id}" do %>
+            <%= link_to task.user.name, user_path(task.user) if task.user %>
+          <% end %>
         </table-cell>
         <table-cell>
           <%= task.status %>
@@ -43,7 +45,9 @@
         <table-cell>
           <%= link_to "edit task", edit_task_path(task) %>
           <%= link_to "delete task", task_path(task), data: { turbo_method: :delete , turbo_confirm: "Are you sure" } %>
-          <%= task.user ? (link_to :unassign, unassign_task_path(task)) : (link_to :assign, assign_task_path(task)) %>
+          <%= turbo_frame_tag "assign" do %>
+            <%= render partial: "tasks/actions", locals: { task: task } %>
+          <% end %>
         </table-cell>
       </table-row>
     <% end %>

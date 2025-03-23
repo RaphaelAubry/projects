@@ -4,13 +4,13 @@ export default class extends Controller {
   static targets = [ "checkbox" ]
 
   connect() {
-    this.checkboxTargets.forEach(target => {
-      if (target.dataset.checked == "true") {
-        target.checked = true
+    for (let checkbox of this.checkboxTargets) {
+      if (checkbox.dataset.checked == "true") {
+        checkbox.checked = true
       }
-      if (target.dataset.checked == "false") {
-        target.checked = false
+      if (checkbox.dataset.checked == "false") {
+        checkbox.checked = false
       }
-    })
+    }
   }
 }

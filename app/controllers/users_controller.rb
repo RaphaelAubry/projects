@@ -40,6 +40,8 @@ class UsersController < ApplicationController
       respond_to do |format|
         format.html { redirect_to users_path, notice: "User updated" }
       end
+    else
+      render "edit"
     end
   end
 

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :task, only: [ :edit, :update, :destroy, :unassign, :assign ]
+  before_action :task, only: [ :edit, :update, :destroy, :unassign, :assign, :assignate ]
   before_action :project, only: [ :new, :create ]
 
   def index
@@ -31,20 +31,34 @@ class TasksController < ApplicationController
       respond_to do |format|
         format.html { redirect_to project_path(@task.project), notice: "Task updated" }
       end
+    else
+      render "edit"
     end
   end
 
   def unassign
-    @task.update(user_id: nil)
-
-    if @task.save
-          respond_to do |format|
-        format.html { redirect_to project_path(@task.project), notice: "Unassigned" }
+    if @task.update(user_id: nil)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to project_path(@task.project), notice: "Task unassigned" }
       end
+    else
+      render "unassign"
     end
   end
 
   def assign
+  end
+
+  def assignate
+    if @task.update(task_params)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to project_path(@task.project), notice: "Task assigned" }
+      end
+    else
+      render "assign"
+    end
   end
 
   def destroy

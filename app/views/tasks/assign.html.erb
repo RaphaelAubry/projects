@@ -1,10 +1,16 @@
 <h1>Assign task</h1>
 <h3><%= @task.name %></h3>
 
-<%= form_for @task do |form| %>
-  <%= form.label "user" %>
-  <%= form.select :user_id, selection %>
-  <%= form.submit "validate" %>
+<%= turbo_frame_tag "assign" do %>
+  <% if selection.present? %>
+    <%= form_for @task, url: assignate_task_path(@task), method: :patch do |form| %>
+      <%= form.label "user" %>
+      <%= form.select :user_id, selection %>
+      <%= form.submit "validate" %>
+    <% end %>
+  <% else %>
+    Please create a user first !
+  <% end %>
 <% end %>
 <group-link>
   <%= link_to @task.project.name, project_path(@task.project) %>

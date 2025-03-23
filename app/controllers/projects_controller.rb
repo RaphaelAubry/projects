@@ -34,6 +34,8 @@ class ProjectsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to projects_path, notice: "Project updated" }
       end
+    else
+      render "edit"
     end
   end
 

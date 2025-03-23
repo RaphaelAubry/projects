@@ -1,5 +1,5 @@
 module TasksHelper
-  def selection
-    User.all.map { |user| [ user.name, user.id ] }
+  def selection_for_users
+    User.all.map { |user| [ user.name, user.id ] }.sort
   end
 end
